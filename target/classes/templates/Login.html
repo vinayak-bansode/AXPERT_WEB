@@ -14,7 +14,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form onsubmit="login(); return false;">
         <h3>Login</h3>
 
         <label for="username">Username</label>
@@ -29,14 +29,17 @@
                 </p>
             </a>
         </div>
-        <button>Log In</button>
+        <button type="submit">Log In</button>
         <div class="social">
             <div class="go"><i class="fab fa-google"></i> Google</div>
             <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
         </div>
-        <button onclick="registerNavigate()">
+
+        <button onclick="registerNavigate(true)">
             Register Here
         </button>
+
+
     </form>
 </body>
 

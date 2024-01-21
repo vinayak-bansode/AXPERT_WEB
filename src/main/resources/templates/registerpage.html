@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="axpert/css/register.css">
     <title>Register</title>
+    <script src="axpert/js/register.js"></script>
 </head>
 
 <body>
@@ -15,8 +16,8 @@
             Register Here
         </h3>
         <div style="display: flex; justify-content: center;">
-            <input type="text" placeholder="firstname" id="fname">
-            <input type="text" placeholder="lastname" id="lname">
+            <input type="text" placeholder="First Name" id="fname">
+            <input type="text" placeholder="Last Name" id="lname">
         </div>
         <br>
         <input type="text" placeholder="Email" id="username">
@@ -25,16 +26,15 @@
         <br>
         <input type="text" placeholder="Country" id="country">
         <br>
+
+        <br>
         <a href="Login.html" id="loginid">
             <p style="margin-right: 20px;">
                 Already Have an Account? Login
             </p>
         </a>
-        <button>
-            Register
-        </button>
+        <button onclick="register()">Register</button>
         <br>
-
     </div>
 </body>
 

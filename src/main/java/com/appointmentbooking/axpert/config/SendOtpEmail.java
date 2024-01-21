@@ -1,7 +1,5 @@
 package com.appointmentbooking.axpert.config;
 
-import java.util.Random;
-
 import org.springframework.stereotype.Component;
 
 @Component("email")

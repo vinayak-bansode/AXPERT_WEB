@@ -6,17 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class Axpert {
-    
+
     @GetMapping("")
     public String showWelcomePage() {
-        return "index"; 
+        return "index";
     }
+
     @GetMapping("/Login.html")
     public String Loginpage() {
-        return "Login"; 
+        return "Login";
     }
+
     @GetMapping("/registerpage.html")
     public String registerpage() {
-        return "registerpages"; 
+        return "registerpage";
+    }
+
+    @GetMapping("/welcome.html")
+    public String welcompage() {
+        return "welcome.html";
     }
 }
