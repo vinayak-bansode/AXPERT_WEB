@@ -1,0 +1,91 @@
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #4c9e9e;
+    justify-content: center;
+    text-align: center;
+
+}
+
+body input {
+    display: block;
+    height: 50px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    justify-self: center;
+    margin-left: 1.7rem;
+}
+
+
+.registerdiv {
+    height: 40rem;
+    width: 30rem;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 10px;
+    justify-self: center;
+    text-align: center;
+    right: inherit;
+    text-align: center;
+    justify-content: center;
+    margin-left: 30%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
+}
+
+#fname {
+    display: block;
+    height: 50px;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#lname {
+    display: block;
+    height: 50px;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 3rem;
+
+}
+
+button {
+    margin-top: 20px;
+    width: 95%;
+
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loginid {
+
+    text-align: end;
+    text-decoration: none;
+    justify-content: end;
+    color: #fff;
+
+}
