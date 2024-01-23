@@ -5,7 +5,10 @@ function register() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var country = document.getElementById("country").value;
-
+  if (fname === "" || lname === "" || username === "" || password === "" || country === "") {
+    alert("All fields must be filled out");
+    return;
+  }
 
     // Create an object with the input values
     var data = {

@@ -22,6 +22,7 @@ import com.appointmentbooking.axpert.utils.AppsJsonParser;
 import com.appointmentbooking.axpert.utils.Constants;
 import com.appointmentbooking.axpert.utils.ErrorMessage;
 import com.appointmentbooking.axpert.utils.Message;
+import com.appointmentbooking.axpert.utils.UserSessionManager;
 import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -45,8 +46,10 @@ public class AuthController {
 	@Autowired
 	AppsJsonParser appsJsonParser;
 
-	
-	//http://localhost:8080/auth/register
+	@Autowired
+	private UserSessionManager userSessionManager;
+
+	// http://localhost:8080/auth/register
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody UserDto user) {
 		JSONObject jsonObject = new JSONObject();
@@ -54,7 +57,10 @@ public class AuthController {
 			if (user != null && StringUtils.hasText(user.getEmail())) {
 				UserDto registeredUser = userservice.registerUser(user);
 //				final String token = jwtTokenHelper.generateToken(registeredUser);
+				// Set the logged-in user in the UserSessionManager
+				userSessionManager.setLoggedInUser(registeredUser);
 				registeredUser.setToken("axpertuser");
+
 				jsonObject.put(Constants.statuskey, true);
 				jsonObject.put("user", registeredUser);
 			} else {
@@ -72,7 +78,7 @@ public class AuthController {
 		return baseAuthoriseRest.createJsonResponse(jsonObject.toString(), HttpStatus.OK);
 	}
 
-	//http://localhost:8080/auth/login
+	// http://localhost:8080/auth/login
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(@RequestBody UserDto user) {
 		JSONObject jsonObject = new JSONObject();
@@ -80,7 +86,10 @@ public class AuthController {
 			if (user != null && StringUtils.hasText(user.getEmail())) {
 
 				UserDto authenticatedUser = userservice.loginuser(user);
+				// Set the logged-in user in the UserSessionManager
+				userSessionManager.setLoggedInUser(authenticatedUser);
 				authenticatedUser.setToken("axpertuser");
+				jsonObject.put(Constants.statuskey, true);
 				jsonObject.put("user", authenticatedUser);
 			} else {
 
@@ -103,7 +112,7 @@ public class AuthController {
 	 * 
 	 * @return:user object
 	 */
-	//http://localhost:8080/auth/forgetpassword/vinayakbansode5@gmail.com/f
+	// http://localhost:8080/auth/forgetpassword/vinayakbansode5@gmail.com/f
 	@RequestMapping(value = "forgetpassword/{email}/{password}", method = RequestMethod.POST)
 	public ResponseEntity<String> forgetpassword(@PathVariable String email, @PathVariable String password,
 			HttpServletResponse response) {
@@ -130,7 +139,8 @@ public class AuthController {
 		}
 		return baseAuthoriseRest.createJsonResponse(jsonObject.toString(), HttpStatus.OK);
 	}
-    //http://localhost:8080/auth/sendotp/bansodevinayak2000@gmail.com
+
+	// http://localhost:8080/auth/sendotp/bansodevinayak2000@gmail.com
 	@RequestMapping(value = "sendotp/{email}", method = RequestMethod.POST)
 
 	public ResponseEntity<String> postMethodName(@PathVariable String email, HttpServletResponse response) {
@@ -164,5 +174,24 @@ public class AuthController {
 		return baseAuthoriseRest.createJsonResponse(jsonObject.toString(), HttpStatus.OK);
 	}
 
-	
+	@PostMapping("/logout")
+	public ResponseEntity<?> logoutUser() {
+		JSONObject jsonObject = new JSONObject();
+		try {
+			// Perform any additional logout actions if needed
+
+			// Clear the user session
+			userSessionManager.logout();
+
+			jsonObject.put(Constants.statuskey, true);
+			jsonObject.put(Constants.messagekey, "Logout Succesfully");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			jsonObject.put(Constants.statuskey, false);
+			jsonObject.put(Constants.errorkey, e.getMessage());
+		}
+		return baseAuthoriseRest.createJsonResponse(jsonObject.toString(), HttpStatus.OK);
+	}
+
 }

@@ -1,40 +1,169 @@
-<!-- src/main/resources/templates/welcome.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Axpert</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sidebar Menu</title>
 
-        h1 {
-            color: #3498db;
-        }
-
-        /* #logo {
-            width: 150px;
-            height: 150px;
-            margin: 20px;
-            animation: rotate 2s infinite linear;
-        }
- */
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="axpert/css/sidebar.css">
 </head>
+
 <body>
-    <img id="logo" src="/images/logo.png" alt="Axpert Logo">
-    <h1>Welcome to Axpert!</h1>
-    <p style="color: #3498db; font-size: 16px; font-family: 'Arial', sans-serif;">Thanks For Choosing us</p>
+	<nav>
+		<div class="sidebar-top">
+			<span class="shrink-btn">
+				<i class='bx bx-chevron-left'></i>
+			</span>
+			<img src="images/logo.png" class="logo" alt="">
+			<h3 class="hide">Axpert</h3>
+		</div>
+
+		<div class="search">
+			<i class='bx bx-search'></i>
+			<input type="text" class="hide" placeholder="Quick Search ...">
+		</div>
+
+		<div class="sidebar-links">
+			<ul>
+				<div class="active-tab"></div>
+				<li class="tooltip-element" data-tooltip="0">
+					<a href="#" class="active" data-active="0">
+						<div class="icon">
+							<i class='bx bx-tachometer'></i>
+							<i class='bx bxs-tachometer'></i>
+						</div>
+						<span class="link hide">Dashboard</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="1">
+					<a href="#" data-active="1">
+						<div class="icon">
+							<i class='bx bx-folder'></i>
+							<i class='bx bxs-folder'></i>
+						</div>
+						<span class="link hide">My Appointment</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="2">
+					<a href="#" data-active="2">
+						<div class="icon">
+							<i class='bx bx-message-square-detail'></i>
+							<i class='bx bxs-message-square-detail'></i>
+						</div>
+						<span class="link hide">Booked Appointment</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="3">
+					<a href="#" data-active="3">
+						<div class="icon">
+							<i class='bx bx-bar-chart-square'></i>
+							<i class='bx bxs-bar-chart-square'></i>
+						</div>
+						<span class="link hide">Notes</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="4">
+					<a href="#" data-active="4">
+						<div class="icon">
+							<i class='bx bx-bar-chart-square'></i>
+							<i class='bx bxs-bar-chart-square'></i>
+						</div>
+						<span class="link hide">Kyc</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="5">
+					<a href="#" data-active="5">
+						<div class="icon">
+							<i class='bx bx-bar-chart-square'></i>
+							<i class='bx bxs-bar-chart-square'></i>
+						</div>
+						<span class="link hide">Transactions</span>
+					</a>
+				</li>
+				<div class="tooltip">
+					<span class="show">Dashboard</span>
+					<span>My Appointment</span>
+					<span>Booked Appointment</span>
+					<span>Notes</span>
+					<span>Kyc</span>
+					<span>transactions</span>
+				</div>
+			</ul>
+
+			<h4 class="hide">Shortcuts</h4>
+
+			<ul>
+				<li class="tooltip-element" data-tooltip="0">
+					<a href="#" data-active="6">
+						<div class="icon">
+							<i class='bx bx-notepad'></i>
+							<i class='bx bxs-notepad'></i>
+						</div>
+						<span class="link hide">Analytics</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="1">
+					<a href="#" data-active="7">
+						<div class="icon">
+							<i class='bx bx-help-circle'></i>
+							<i class='bx bxs-help-circle'></i>
+						</div>
+						<span class="link hide">Help</span>
+					</a>
+				</li>
+				<li class="tooltip-element" data-tooltip="2">
+					<a href="#" data-active="8">
+						<div class="icon">
+							<i class='bx bx-cog'></i>
+							<i class='bx bxs-cog'></i>
+						</div>
+						<span class="link hide">Settings</span>
+					</a>
+				</li>
+				<div class="tooltip">
+					<span class="show">Tasks</span>
+					<span>Help</span>
+					<span>Settings</span>
+				</div>
+			</ul>
+		</div>
+
+
+	</nav>
+
+	<main id="dashboard-content">
+		<!-- Profile Dropdown -->
+		<div class="profile-dropdown" >
+			<div class="profile-icon tooltip-element" data-tooltip="2">
+				<img src="images/person.png" alt="">
+			</div>
+			<div class="profile-dropdown-content">
+				<div class="profile-info">
+					<img src="images/person.png" alt="">
+					<div>
+						<h3>John Doe</h3>
+						<h5>Admin</h5>
+					</div>
+				</div>
+				<ul>
+					<li><a href="#">Username</a></li>
+					<li><a href="#">Email</a></li>
+					<li><a href="#" id="logoutBtn">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+
+	<!--	 Initial content for the dashboard 
+		<h1>My Dashboard</h1>
+		<p class="text">
+
+		</p>-->
+	</main>
+
+	<script src="axpert/js/sidebar.js"></script>
 </body>
+
 </html>
